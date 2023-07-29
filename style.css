@@ -6,7 +6,9 @@
     box-sizing: border-box;
     font-family: "Spartan", sans-serif;
 }
-
+.titleicon{
+    border-radius: 50px;
+}
 body {
     width: 100%;
 }
@@ -38,9 +40,10 @@ p {
     color: #465b52;
     margin: 15px 0 20px 0;
 }
+
 .section-p1 {
     padding: 40px 80px;
-  }
+}
 
 
 .header {
@@ -191,24 +194,118 @@ p {
 .box:nth-child(6) h6 {
     background-color: #fff2e5;
 }
-.product1{
+
+.product1 {
     text-align: center;
 }
-.product1 .pro-contanier{
+
+.product1 .pro-contanier {
     display: flex;
     flex-wrap: wrap;
 }
-.product1 .pro{
+
+.product1 .pro {
     width: 23%;
-    min-width:250px;
+    min-width: 250px;
     padding: 10px 12px;
     border: 1px solid #cce7d0;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 10px;
+    position: relative;
 }
-.product1 .pro img{
+
+.product1 .pro img {
     width: 100%;
     border-radius: 10px;
 }
+
+.product1 .pro .discirption {
+    text-align: start;
+    padding: 10px 0;
+}
+
+.product1 .pro .discirption span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.product1 .pro .discirption h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+.product1 .pro .discirption i {
+    font-size: 12px;
+    color: rgb(214, 214, 5);
+}
+
+.product1 .pro .discirption h4 {
+    padding: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+}
+
+.product1 .pro .cart {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    font-weight: 600;
+    color: #088178;
+    border: 1px solid #ccc7d0;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+  }
+.banner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-image: url(Assests/banner/b2.jpg);
+    width: 100%;
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.banner h4 {
+    color: white;
+    font-size: 20px;
+}
+
+.banner h2 {
+    color: white;
+    font-size: 30px;
+    padding: 10px 0px;
+}
+
+.banner h2 span {
+    color: red;
+    font-size: 30px;
+}
+
+.banner button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+    border-radius: 4px;
+}
+
+.banner button:hover {
+    background: #088178;
+    color: #fff;
+  }
+  
