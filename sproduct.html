@@ -13,6 +13,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script>
+            // Extract product ID from the URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+    
+            async function fetchProductDetails(productId) {
+                try {
+                    const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
+                    const product = await response.json();
+    
+                    const productDetailContainer = document.getElementById('productdetail');
+    
+                    // Render product details
+                    productDetailContainer.innerHTML =
+                    
+                    `
+                       
+                    <div class="single-pro-image">
+            <img src="${product.image}" width="100%" alt="">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/ T-shirt</h6>
+            <h4>${product.title}</h4>
+            <h2>$${product.price}</h2>
+            <select name="" id="">
+                <option value="">select Size</option>
+                <option value="">Small</option>
+                <option value="">Large</option>
+                <option value="">XL</option>
+                <option value="">XXL</option>
+            </select>
+            <input type="number" value="1" />
+            <button class="normal">Add to Cart</button>
+            <h4>Product Details</h4>
+            <span>${product.description}</span>
+          </div>
+                    `;
+                } catch (error) {
+                    console.error('Error fetching product details:', error);
+                }
+            }
+    
+            // Fetch and render product details
+            fetchProductDetails(productId);
+        </script>
+    
 </head>
 
 
@@ -32,25 +78,83 @@
         </ul>
     </section>
 
-    <section class="section-p1">
-        <div class="single-pro-image">
-            <img src="Assests/products/f1.jpg" width="100%" alt="">
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img src="Assests/products/f1.jpg" class="small-img" width="100%" alt="">
+
+    <section id="productdetail" class="productdetail section-p1">
+     
+    </section>
+
+
+    <section class=" product1 section-p1">
+        <h2>Featured Products</h2>
+        <p class="text">Summer Colection New Modern Design</p>
+        <div class="pro-contanier" id="products-container">
+           
+            <div class="pro">
+                <img src="Assests/products/f2.jpg" alt="">
+                <div class="discirption">
+                    <span>Idedas</span>
+                    <h5>Carton T-Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$ 114</h4>
                 </div>
-                <div class="small-img-col">
-                    <img src="Assests/products/f2.jpg" class="small-img" width="100%" alt="">
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="Assests/products/f3.jpg" alt="">
+                <div class="discirption">
+                    <span>Idedas</span>
+                    <h5>Carton T-Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$ 114</h4>
                 </div>
-                <div class="small-img-col">
-                    <img src="Assests/products/f3.jpg" class="small-img" width="100%" alt="">
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="Assests/products/f4.jpg" alt="">
+                <div class="discirption">
+                    <span>Idedas</span>
+                    <h5>Carton T-Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$ 114</h4>
                 </div>
-                <div class="small-img-col">
-                    <img src="Assests/products/f4.jpg" class="small-img" width="100%" alt="">
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+        
+            <div class="pro">
+                <img src="Assests/products/f8.jpg" alt="">
+                <div class="discirption">
+                    <span>Idedas</span>
+                    <h5>Carton T-Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$ 114</h4>
                 </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
             </div>
         </div>
-        <div></div>
     </section>
 
     <section class=" newsletter section-p1 section-m1">

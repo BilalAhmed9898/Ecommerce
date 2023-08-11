@@ -14,7 +14,6 @@
 body {
     width: 100%;
 }
-
 h1 {
     font-size: 50px;
     line-height: 64px;
@@ -243,6 +242,9 @@ p {
 }
 .pro:hover img {
     transform: scale(1.1); /* Apply zoom effect on hover */
+  }
+  .product1 .pro a{
+    text-decoration: none;
   }
 
 .product1 .pro .discirption {
@@ -616,6 +618,57 @@ footer .copyright {
 .small-img-col{
     flex-basis: 24%;
     cursor: pointer;
+}
+.productdetail{
+    display: flex;
+}
+.single-pro-details{
+    width: 50%;
+    padding-top: 20px;
+}
+.single-pro-details h4{
+  margin: 30px 0px;
+}
+.single-pro-details h2{
+  font-size: 30px;
+}
+.single-pro-details select{
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+.single-pro-details input {
+    width:  50px;
+    height: 42px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .single-pro-details button {
+    width: 150px;
+    height: 42px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 0px 10px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #13b3a8;
+  }
+
+
+
+
+
+
+
+
+
+
+.text{
+    color: black;
 }
 /* Contact page css */
 .contact-details {

@@ -53,19 +53,20 @@
 <body>
 
     <div class="container">
-        <form action="" name="LoginForm" onsubmit="return validate();">
+        <form action="Signup.php" method="POST" onsubmit="return validate();">
             <input type="checkbox" id="check">
             <div class="login form">
                 <header>SignUp</header>
-                <form action="#">
-                    <input type="text" id="name" placeholder="Enter your Name">
-                    <input type="email" id="email" placeholder="Enter your email">
-                    <input type="password" id="password" placeholder="Enter your password">
-                    <input type="text" id="cnic" placeholder="CNIC" maxlength="15">
-                    <input type="text" id="address" placeholder="Enter your Address">
+                <!-- <form> -->
+                    <input type="text" id="name" name="name" placeholder="Enter your Name">
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <input type="number" id="number" name="number" placeholder="Phone Number">
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <input type="text" id="cnic" name="cnic" placeholder="CNIC" maxlength="15">
+                    <input type="text" id="address" name="address" placeholder="Enter your Address">
                     <a href="#">Forgot password?</a>
                     <input type="submit" class="button" value="SignUp">
-                </form>
+                <!-- </form> -->
                 <div class="signup">
                     <span class="signup">Already have an account?
                         <label for="check"><a href="Login.html">Login</a></label> <br>
