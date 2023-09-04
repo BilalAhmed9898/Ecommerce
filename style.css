@@ -9,6 +9,7 @@
 
 .titleicon {
     border-radius: 50px;
+    padding: 0px;
 }
 
 body {
@@ -74,7 +75,7 @@ p {
 
 .navbar li a {
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: #1a1a1a;
     transition: 0.2s ease;
@@ -109,11 +110,15 @@ p {
 
 
 .cart {
-    width: 9%;
-    height: 9%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
 }
-
+.profile{
+    width: 10%;
+    height: 10%;
+    cursor: pointer;
+}
 .hero {
     background-image: url(Assests/hero4.png);
     width: 100%;
@@ -458,6 +463,7 @@ button.white {
 
 .newsletter {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
@@ -795,5 +801,26 @@ footer .copyright {
   .abbr {
     text-decoration: none;
   }
+  /* About Us */
+  .About-head {
+    display: flex;
+    align-items: center;
+  }
   
+  .About-head img {
+    width: 50%;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .about-head .aboutdata {
+    margin: 50px;
+  }
+  .about-head .aboutdata h2, p {
+   color: black;  
+}
+  /* styles.css */
+
+/* Style for the <section> element */
+
   

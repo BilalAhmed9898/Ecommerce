@@ -22,7 +22,7 @@
             if (name == "" || email == "" || text == "") {
                 alert("Please Fill All fields Correctly");
                 return false;
-            }
+            } 
             if (!email.match(emailRegex)) {
                 alert("Please enter a valid email address");
                 return false;
@@ -33,6 +33,40 @@
         }
         </script>
 </head>
+<?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    // Database connection (adjust the credentials)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "registration";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+      
+    // Insert data into the database
+    $sql = "INSERT INTO feedback (Name, Email,Subject,message) VALUES ('$name', '$email','$subject','$message')";
+
+    if ($conn->query($sql) === TRUE) {
+      echo '<script>alert("Feedback is Submitted !");</script>';
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+
 
 
 <body>
@@ -40,15 +74,23 @@
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <!-- <li><a href="sproduct.html">Product Page</a></li> -->
-            <li><a href="Blog.html">Blog</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <img class="cart"
-                src="Assests/shopping-cart-set-of-shopping-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png"
-                alt="">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Shop.php">Shop</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
+
+                <?php
+            $isLoggedIn = true;
+            if ($isLoggedIn) {
+                echo '<img class="profile"
+                src="Assests/userprofile.png"
+                alt=""
+                style="width: 40px; height: 40px; margin:10px ; cursor: pointer;">';
+            } else {
+                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+            }
+        ?>
         </ul>
     </section>
     <!-- Hero Section -->
@@ -95,13 +137,13 @@
         </div>
         </section>  
         <section class="form-details">
-            <form action="" onsubmit="return validate();">
+            <form action="Contact.php" method="POST" onsubmit="return validate();">
               <span>LEAVE A MESSAGE</span>
               <h2>We love to hear from you</h2>
-              <input type="text" id="name" placeholder="Your Name" />
-              <input type="email"id="email"  placeholder=" Enter Your email" />
-              <input type="text" placeholder="Subject (optional)" />
-              <textarea name="" id="text" cols="30" rows="10"> </textarea>
+              <input type="text" id="name" name="name" placeholder="Your Name" />
+              <input type="email"id="email" name="email" placeholder=" Enter Your email" />
+              <input type="text" name="subject" placeholder="Subject (optional)" />
+              <textarea id="text" name="message" cols="30" rows="10"> </textarea>
               <button class="normal">Submit</button>
             </form>
             <div class="people">

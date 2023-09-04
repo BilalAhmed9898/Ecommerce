@@ -21,15 +21,23 @@
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <!-- <li><a href="sproduct.html">Product Page</a></li> -->
-            <li><a href="Blog.html">Blog</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <img class="cart"
-                src="Assests/shopping-cart-set-of-shopping-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png"
-                alt="">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Shop.php">Shop</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
+
+                <?php
+            $isLoggedIn = true;
+            if ($isLoggedIn) {
+                echo '<img class="profile"
+                src="Assests/userprofile.png"
+                alt=""
+                style="width: 40px; height: 40px; margin:10px ; cursor: pointer;">';
+            } else {
+                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+            }
+        ?>
         </ul>
     </section>
     <!-- Hero Section -->

@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <script>
     async function fetchAndRenderProducts() {
@@ -28,7 +27,7 @@
             const productHTML = products.map((product) => `
         <div class="pro">
             
-            <a href="sproduct.html?id=${product.id}">
+            <a href="sproduct.php?id=${product.id}">
                 <img src="${product.image}" alt="${product.title}" >
                 <div class="discirption">
                     <span>Idedas</span>
@@ -62,20 +61,37 @@
 
 </script>
 
+
+
+
+
+
+
+
+
+
 <body>
     <!-- Header Section -->
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul class="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <!-- <li><a href="sproduct.html">Product Page</a></li> -->
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <img class="cart"
-                src="Assests/shopping-cart-set-of-shopping-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png"
-                alt="">
-            <button><a href="Authantication/Login.html">Login</a></button>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Shop.php">Shop</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
+
+                <?php
+            $isLoggedIn = true;
+            if ($isLoggedIn) {
+                echo '<img class="profile"
+                src="Assests/userprofile.png"
+                alt=""
+                style="width: 40px; height: 40px; margin:10px ; cursor: pointer;">';
+            } else {
+                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+            }
+        ?>
         </ul>
     </section>
     <!-- Hero Section -->
@@ -285,7 +301,7 @@
             <h3>Winter Collection -50% Off!</h3>
         </div>
     </section>
-    <section class=" newsletter section-p1 section-m1">
+    <section class="newsletter section-p1">
         <div class="newstext">
             <h4>Sign Up For Newsletters</h4>
             <p>
@@ -293,10 +309,10 @@
                 <span> Special Offers.</span>
             </p>
         </div>
-        <div class="form">
+        <form class="form">
             <input type="text" placeholder="Your Email address" />
-            <button class="normal">Sign Up</button>
-        </div>
+            <button class="normal" type="submit">Sign Up</button>
+        </form>
     </section>
 
     <footer class="section-p1">

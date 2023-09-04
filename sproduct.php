@@ -31,9 +31,9 @@
                     `
                        
                     <div class="single-pro-image">
-            <img src="${product.image}" width="100%" alt="">
-        </div>
-        <div class="single-pro-details">
+                    <img src="${product.image}" width="100%" alt="">
+           </div>
+         <div class="single-pro-details">
             <h6>Home/ T-shirt</h6>
             <h4>${product.title}</h4>
             <h2>$${product.price}</h2>
@@ -67,14 +67,22 @@
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/Shop.html">Shop</a></li>
-            <li><a href="pages/Blog.html">Blog</a></li>
-            <li><a href="pages/About.html">About</a></li>
-            <li><a href="pages/Contact.html">Contact</a></li>
-            <img class="cart"
-                src="Assests/shopping-cart-set-of-shopping-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png"
-                alt="">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Shop.php">Shop</a></li>
+            <li><a href="About.php">About</a></li>
+            <li><a href="Contact.php">Contact</a></li>
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
+                <?php
+            $isLoggedIn = true;
+            if ($isLoggedIn) {
+                echo '<img class="profile"
+                src="Assests/userprofile.png"
+                alt=""
+                style="width: 40px; height: 40px; margin:10px ; cursor: pointer;">';
+            } else {
+                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+            }
+        ?>
         </ul>
     </section>
 
