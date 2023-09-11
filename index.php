@@ -55,20 +55,76 @@
         }
     }
 
-    // Call the function to fetch and render the products when the page loads
-
     fetchAndRenderProducts();
+   
 
+   
 </script>
+<?php
+       include('Authantication/dbconnect.php');
+        session_start(); // Start the session
+        if (isset($_SESSION['user_email'])) {
+            $isLoggedIn = true;
+            $userEmail = $_SESSION['user_email']; // You can access user data here if needed
+        } else {
+            $isLoggedIn = false;
+        }
 
+        $email = '';
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['email'])) {
+                $email = $_POST['email'];
+            } else {
+                // Handle the case where email is invalid
+                echo '<script>alert("Invalid email address. Please provide a valid email address.")</script>';
+            }
+        }
 
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\SMTP;
+        use PHPMailer\PHPMailer\Exception;
 
+        require 'phpmailer/phpmailer/src/Exception.php';
+        require 'phpmailer/phpmailer/src/PHPMailer.php';
+        require 'phpmailer/phpmailer/src/SMTP.php';
 
+        // Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
 
+        try {
+            // Server settings
+            $mail->isSMTP(); // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com'; // Set the SMTP server to send through
+            $mail->SMTPAuth   = true; // Enable SMTP authentication
+            $mail->Username   = 'zaheerbilal440@gmail.com'; // SMTP username
+            $mail->Password   = 'borpzqlhuhevjwcu'; // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable implicit TLS encryption
+            $mail->Port       = 587; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
+            // Recipients
+            $mail->setFrom('zaheerbilal440@gmail.com', 'Customer');
+            
+            if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $mail->addAddress($email); // Add a recipient
+            } 
+            
 
+            // Content
+            $mail->isHTML(true); // Set email format to HTML
+            $mail->Subject = 'Customer Care Message.';
+            $mail->Body    = 'Dear Valued Customer
+            We are thrilled to have you as part of our family! Stay tuned for exciting future deals that promise even more savings and incredible products. We can not wait to bring you more fantastic shopping experiences.  
+            Best regards,
+            CARA Ecommerce';
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
+            $mail->send();
+            echo '<script>alert("Welcome to CARA, Your Shopping Destination!")</script>';
+        } catch (Exception $e) {
+            echo "";
+        }   
+?>
 
 <body>
     <!-- Header Section -->
@@ -79,21 +135,22 @@
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
-
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
                 <?php
-            $isLoggedIn = true;
             if ($isLoggedIn) {
-                echo '<img class="profile"
+                // User is logged in, access the email session and show the icon
+                echo '<a href="Profile.php"><img class="profile"
                 src="Assests/userprofile.png"
                 alt=""
-                style="width: 40px; height: 40px; margin:10px ; cursor: pointer;">';
+                style="width: 40px; height: 40px; margin: 10px; cursor: pointer;"></a>';
             } else {
+                // User is not logged in, display a login button
                 echo '<button><a href="Authantication/Login.php">Login</a></button>';
             }
         ?>
         </ul>
     </section>
+    
     <!-- Hero Section -->
     <section class="hero">
         <h4>Trade-in-offer</h4>
@@ -309,8 +366,8 @@
                 <span> Special Offers.</span>
             </p>
         </div>
-        <form class="form">
-            <input type="text" placeholder="Your Email address" />
+        <form action="index.php" method="POST" class="form">
+            <input type="text" name="email" placeholder="Your Email address" />
             <button class="normal" type="submit">Sign Up</button>
         </form>
     </section>

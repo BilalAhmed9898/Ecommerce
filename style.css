@@ -640,7 +640,7 @@ footer .copyright {
 }
 .single-pro-details select{
   display: block;
-  padding: 5px 10px;
+  padding: 10px 10px;
   margin-bottom: 20px;
 }
 .single-pro-details input {
@@ -663,15 +663,6 @@ footer .copyright {
     cursor: pointer;
     background-color: #13b3a8;
   }
-
-
-
-
-
-
-
-
-
 
 .text{
     color: black;
@@ -819,8 +810,182 @@ footer .copyright {
   .about-head .aboutdata h2, p {
    color: black;  
 }
-  /* styles.css */
+.ProductDetail{
+ display: flex;
+ justify-content: center;
+}
 
-/* Style for the <section> element */
+/* AddtoCart Css */
+.Cart-header{
+    background-image: url(./Assests/banner/b19.jpg);
+  }
+  #cart table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+#cart table img {
+    width: 100px;
+    border-radius: 10px;
+  }
+  #cart table td:nth-child(1) {
+      width: 100px;
+      font-size: 14px;
+    text-align: center;
+    color: black;
+}
+#cart table td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+}
+#cart table td:nth-child(3) {
+    font-size: 14px;
+    width: 250px;
+    color: black;
+    text-align: center;
+}
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6) {
+    font-size: 14px;
+    color: black;
+    width: 150px;
+    text-align: center;
+}
 
+#cart table td:nth-child(5) input {
+    width: 70px;
+    font-size: 14px;
+    padding: 10px 5px 10px 15px;
+}
+
+#cart table thead {
+    border: 1px solid #c9cbce;
+    font-size: 14px;
+    border-left: none;
+    border-right: none;
+  }
+  #cart table thead td {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 18px 0;
+  }
+  #cart table tbody tr td {
+    padding-top: 15px;
+  } 
+  #cart-add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #coupon {
+    width: 50%;
+    margin-bottom: 30px;
+  }
   
+  #coupon h3,
+  #subtotal h3 {
+    padding-bottom: 19px;
+  }
+  #coupon input {
+    padding: 15px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #c9cbce;
+  }
+  
+  #coupon button,
+  #subtotal button {
+    width: 170px;
+    height: 50px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0px 10px;
+    outline: none;
+    border-radius: 5px;
+    background-color: #13b3a8;
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  
+  #coupon button:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #088178;
+}
+  #subtotal {
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #ccc7d0;
+    padding: 30px;
+  }
+  
+  #subtotal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #subtotal table td {
+    width: 50%;
+    border: 1px solid #c9cbce;
+    padding: 10px;
+    font-size: 16px;
+  }
+  /* Profile Page Css */
+  .Profile{
+    display: flex;
+    flex-direction: column;
+    background-color:#e3e6f3;
+   }
+   .intro{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   }
+   .intro img{
+    width: 180px;
+    height: 200px;
+    border-radius: 10px;
+   }
+   .Profile .discrip{
+    margin-top: 40px;
+   }
+   .Profile .discrip .col1{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+   }
+   .Profile .discrip .col1 p{
+   color: black;
+   margin: 10px;
+   font-size: 18px;
+   font-weight: 500;
+   }
+   
+   .Profile .discrip .col1  button {
+  width: 120px;
+  height: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #d92515;
+  transition: 0.4s ease;
+}
+
+.Profile .discrip .col1  button:hover {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+

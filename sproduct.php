@@ -17,6 +17,30 @@
             // Extract product ID from the URL query parameter
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
+                
+                    function validateQuantity() {
+            // Get the quantity input element
+            const quantityInput = document.getElementById('quantity');
+
+            // Parse the input value as a number
+            const quantity = parseInt(quantityInput.value);
+
+            // Check if the quantity is less than zero or equal to 1
+            if (isNaN(quantity) || quantity <= 1) {
+                // Set the value of the input field to 1
+                quantityInput.disabled = true;
+                quantityInput.value = 1;
+            } else {
+                // Enable the input field
+                quantityInput.disabled = false;
+            }
+        }
+
+
+
+
+
+
     
             async function fetchProductDetails(productId) {
                 try {
@@ -29,26 +53,31 @@
                     productDetailContainer.innerHTML =
                     
                     `
+                    <form action="AddtoCart.php" method="POST" class='ProductDetail'>
+    <div class="single-pro-image">
+        <img src="${product.image}" width="100%" alt="">
+    </div>
+    <div class="single-pro-details">
+        <h6>Home/ T-shirt</h6>
+        <h4>${product.title}</h4>
+        <h2>$${product.price}</h2>
+        <select name="size" id="size">
+            <option value="Small">Small</option>
+            <option value="Large">Large</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <input type="number" name="quantity" id="quantity" value='1' min='1' oninput="validateQuantity(this)">
+        <input type="hidden" name="image" value="${product.image}">
+        <input type="hidden" name="product_id" value="${product.id}" />
+        <input type="hidden" name="title" value="${product.title}" />
+        <input type="hidden" name="price" value="${product.price}" />
+        <button type="submit" name="AddtoCart" class="normal">Add to Cart</button>
+        <h4>Product Details</h4>
+        <span>${product.description}</span>
+    </div>
+</form>
                        
-                    <div class="single-pro-image">
-                    <img src="${product.image}" width="100%" alt="">
-           </div>
-         <div class="single-pro-details">
-            <h6>Home/ T-shirt</h6>
-            <h4>${product.title}</h4>
-            <h2>$${product.price}</h2>
-            <select name="" id="">
-                <option value="">select Size</option>
-                <option value="">Small</option>
-                <option value="">Large</option>
-                <option value="">XL</option>
-                <option value="">XXL</option>
-            </select>
-            <input type="number" value="1" />
-            <button class="normal">Add to Cart</button>
-            <h4>Product Details</h4>
-            <span>${product.description}</span>
-          </div>
                     `;
                 } catch (error) {
                     console.error('Error fetching product details:', error);
@@ -63,6 +92,15 @@
 
 
 <body>
+<?php
+     session_start(); // Start the session
+     if (isset($_SESSION['user_email'])) {
+         $isLoggedIn = true;
+         $userEmail = $_SESSION['user_email']; // You can access user data here if needed
+     } else {
+         $isLoggedIn = false;
+     }
+    ?>
     <!-- Header Section -->
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
@@ -71,7 +109,7 @@
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
                 <?php
             $isLoggedIn = true;
             if ($isLoggedIn) {
@@ -173,10 +211,10 @@
                 <span> Special Offers.</span>
             </p>
         </div>
-        <div class="form">
-            <input type="text" placeholder="Your Email address" />
+        <form action="index.php" method="POST" class="form">
+            <input type="text" name="email" placeholder="Your Email address" />
             <button class="normal">Sign Up</button>
-        </div>
+        </form>
     </section>
 
     <footer class="section-p1">

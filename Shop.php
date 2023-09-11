@@ -17,6 +17,15 @@
 
 
 <body>
+<?php
+     session_start(); // Start the session
+     if (isset($_SESSION['user_email'])) {
+         $isLoggedIn = true;
+         $userEmail = $_SESSION['user_email']; // You can access user data here if needed
+     } else {
+         $isLoggedIn = false;
+     }
+    ?>
     <!-- Header Section -->
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
@@ -25,8 +34,7 @@
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
-
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
                 <?php
             $isLoggedIn = true;
             if ($isLoggedIn) {
@@ -311,7 +319,7 @@
     <section class="pagination section-p1 ">
         <a href="#">1</a>
         <a href="#">2</a>
-        <a href="#"><i class="fla fa-long-arrow-alt-right"></i></a>
+        <a href="#"><i class="fa fa-long-arrow-alt-right"></i></a>
     </section>
     <section class=" newsletter section-p1 section-m1">
         <div class="newstext">

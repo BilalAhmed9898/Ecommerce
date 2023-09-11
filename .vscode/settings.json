@@ -1,5 +1,8 @@
 {
     "[php]": {
         "editor.defaultFormatter": "Jota0222.multi-formatter"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "Jota0222.multi-formatter"
     }
 }

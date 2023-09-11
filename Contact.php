@@ -34,6 +34,14 @@
         </script>
 </head>
 <?php
+
+ session_start(); // Start the session
+ if (isset($_SESSION['user_email'])) {
+     $isLoggedIn = true;
+     $userEmail = $_SESSION['user_email']; // You can access user data here if needed
+ } else {
+     $isLoggedIn = false;
+ }
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
@@ -78,8 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
-
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
                 <?php
             $isLoggedIn = true;
             if ($isLoggedIn) {
@@ -182,10 +189,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span> Special Offers.</span>
             </p>
         </div>
-        <div class="form">
+        <form action="index.php" method="POST" class="form">
             <input type="text" placeholder="Your Email address" />
             <button class="normal">Sign Up</button>
-        </div>
+        </form>
     </section>
 
     <footer class="section-p1">

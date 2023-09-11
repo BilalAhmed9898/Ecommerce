@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php
+     session_start(); // Start the session
+     if (isset($_SESSION['user_email'])) {
+         $isLoggedIn = true;
+         $userEmail = $_SESSION['user_email']; // You can access user data here if needed
+     } else {
+         $isLoggedIn = false;
+     }
+    ?>
 <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul class="navbar">
@@ -14,8 +23,7 @@
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/shopping-cart-set-of-shoppin-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector-removebg-previe.png" alt=""></a></li>
-
+            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
                 <?php
             $isLoggedIn = true;
             if ($isLoggedIn) {
