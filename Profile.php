@@ -29,25 +29,29 @@ if (isset($_POST['logout'])) {
 
 <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
-        <ul class="navbar">
+        <ul id="navbar">
             <li><a href="index.php">Home</a></li>
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li>
             <li><a href="Contact.php">Contact</a></li>
             <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
-                <?php
+           <li><?php
             if ($isLoggedIn) {
                 // User is logged in, access the email session and show the icon
                 echo '<a href="Profile.php"><img class="profile"
-                src="Assests/userprofile.png"
-                alt=""
-                style="width: 40px; height: 40px; margin: 10px; cursor: pointer;"></a>';
+                    src="Assests/userprofile.png"
+                    alt=""
+                    style="width: 40px; height: 40px; margin: 10px; cursor: pointer;"></a>';
             } else {
                 // User is not logged in, display a login button
-                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+                echo '<div id="login-button"><button><a href="Authantication/Login.php">Login</a></button></div>';
             }
-        ?>
+            ?></li>
         </ul>
+        <div id="mobile">
+        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+        <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
     </section>
               <div class="Profile section-p1">
             <div class="intro">

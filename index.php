@@ -14,7 +14,23 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<script>
+    <script>
+            // const bar = document.getElementById('bar'); // Changed getElementsById to getElementById
+            // const close = document.getElementById('close'); // Changed getElementsById to getElementById
+            // const nav = document.getElementById('navbar'); // Changed getElementsById to getElementById
+
+            // if (bar) {
+            //     bar.addEventListener('click', () => {
+            //         nav.classList.add('active');
+            //     });
+            // }
+
+            // if (close) {
+            //     close.addEventListener('click', () => { // Changed bar.addEventListener to close.addEventListener
+            //         nav.classList.remove('active');
+            //     });
+            // }
+
     async function fetchAndRenderProducts() {
         try {
             const response = await fetch('https://fakestoreapi.com/products?limit=20');
@@ -26,7 +42,6 @@
             // Map each product and create the corresponding HTML elements
             const productHTML = products.map((product) => `
         <div class="pro">
-            
             <a href="sproduct.php?id=${product.id}">
                 <img src="${product.image}" alt="${product.title}" >
                 <div class="discirption">
@@ -42,7 +57,7 @@
                 <h4>$${product.price.toFixed(2)}</h4>
                 </div>
                 </a>
-            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            <a href="sproduct.php?id=${product.id}"><i class="fa-solid fa-cart-shopping cart"></i></a>
         </div>
         `).join('');
 
@@ -130,25 +145,29 @@
     <!-- Header Section -->
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
-        <ul class="navbar">
+        <ul id="navbar">
             <li><a href="index.php">Home</a></li>
             <li><a href="Shop.php">Shop</a></li>
-            <li><a href="About.php">About</a></li>
+            <li><a href="About.php">About</a></li >
             <li><a href="Contact.php">Contact</a></li>
             <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
-                <?php
+           <li><?php
             if ($isLoggedIn) {
                 // User is logged in, access the email session and show the icon
                 echo '<a href="Profile.php"><img class="profile"
-                src="Assests/userprofile.png"
-                alt=""
-                style="width: 40px; height: 40px; margin: 10px; cursor: pointer;"></a>';
+                    src="Assests/userprofile.png"
+                    alt=""
+                    style="width: 40px; height: 40px; margin: 10px; cursor: pointer;"></a>';
             } else {
                 // User is not logged in, display a login button
-                echo '<button><a href="Authantication/Login.php">Login</a></button>';
+                echo '<div id="login-button"><button><a href="Authantication/Login.php">Login</a></button></div>';
             }
-        ?>
+            ?></li>
         </ul>
+        <div id="mobile">
+        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+        <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
     </section>
     
     <!-- Hero Section -->
