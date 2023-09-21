@@ -15,16 +15,18 @@
      } else {
          $isLoggedIn = false;
      }
-    ?>
+?>
 <section class="header">
-        <a href="#"><img src="Assests/logo.png" alt=""></a>
-        <ul id="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="Shop.php">Shop</a></li>
-            <li><a href="About.php">About</a></li>
-            <li><a href="Contact.php">Contact</a></li>
-            <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
-           <li><?php
+    <a href="#"><img src="Assests/logo.png" alt=""></a>
+    <ul id="navbar">
+        <i id="close" class="fas fa-times"></i>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="Shop.php">Shop</a></li>
+        <li><a href="About.php">About</a></li>
+        <li><a href="Contact.php">Contact</a></li>
+        <li><a href="AddtoCart.php"><img class="cart" src="Assests/Cart.png" alt=""></a></li>
+        <li>
+        <?php
             if ($isLoggedIn) {
                 // User is logged in, access the email session and show the icon
                 echo '<a href="Profile.php"><img class="profile"
@@ -35,20 +37,21 @@
                 // User is not logged in, display a login button
                 echo '<div id="login-button"><button><a href="Authantication/Login.php">Login</a></button></div>';
             }
-            ?></li>
-        </ul>
-        <div id="mobile">
-        <a href="#"><i class="fas fa-shopping-bag"></i></a>
-        <i id="bar" class="fa-solid fa-bars"></i>
-      </div>
-    </section>
+        ?>
+        </li>
+    </ul>
+    <div id="mobile">
+        <a href="AddtoCart.php"><i class="fas fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-bars"></i>
+    </div>
+</section>
 
-    <section id="page-header" class="page-background About-header">
-        <h2>#KnowUs</h2>
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
-    </section>
-    <section class="About-head section-p1">
-     <img src="Assests/about/a6.jpg" alt="" />
+<section id="page-header" class="page-background About-header">
+    <h2>#KnowUs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+</section>
+<section class="About-head section-p1">
+    <img src="Assests/about/a6.jpg" alt="" />
 
     <div class="aboutdata">
         <h2>Who we are?</h2>
@@ -71,100 +74,115 @@
             "Your One-Stop Shop for Everything You Love!"</marquee>
     </div>
 </section>
-    <!-- <section class="Aboutapp">
-    <h1>Download Our <a href="#">App</a></h1>
-    <div class="video">
-        <video autoPlay muted loop src="Assests/about/appvideo.mp4"></video>
+
+<section class="services">
+    <div class="box"><img src="Assests/features/f1.png" alt="">
+        <h6>Free Shipping</h6>
     </div>
-</section> -->
-   <section class="services">
-        <div class="box"><img src="Assests/features/f1.png" alt="">
-            <h6>Free Shipping</h6>
-        </div>
-        <div class="box"><img src="Assests/features/f2.png" alt="">
-            <h6>Online Order</h6>
-        </div>
-        <div class="box"><img src="Assests/features/f3.png" alt="">
-            <h6>Save Money</h6>
-        </div>
-        <div class="box"><img src="Assests/features/f4.png" alt="">
-            <h6>Promotion</h6>
-        </div>
-        <div class="box"><img src="Assests/features/f5.png" alt="">
-            <h6>Happy Sell</h6>
-        </div>
-        <div class="box"><img src="Assests/features/f6.png" alt="">
-            <h6>24/7 Support</h6>
-        </div>
-    </section>
-    <section class=" newsletter section-p1 section-m1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletters</h4>
-            <p>
-                Get E-mail updates about our latest shop and
-                <span> Special Offers.</span>
-            </p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your Email address" />
-            <button class="normal">Sign Up</button>
-        </div>
-    </section>
-    <footer class="section-p1">
-        <div class="col">
-            <img src="Assests/logo.png" alt="" />
-            <h4>Contact</h4>
-            <p>
-                <strong>Addres:</strong> 562 Wellington Road, Street 32, San Francisco
-            </p>
+    <div class="box"><img src="Assests/features/f2.png" alt="">
+        <h6>Online Order</h6>
+    </div>
+    <div class="box"><img src="Assests/features/f3.png" alt="">
+        <h6>Save Money</h6>
+    </div>
+    <div class="box"><img src="Assests/features/f4.png" alt="">
+        <h6>Promotion</h6>
+    </div>
+    <div class="box"><img src="Assests/features/f5.png" alt="">
+        <h6>Happy Sell</h6>
+    </div>
+    <div class="box"><img src="Assests/features/f6.png" alt="">
+        <h6>24/7 Support</h6>
+    </div>
+</section>
 
-            <p><strong>Addres:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+<section class="newsletter section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+            Get E-mail updates about our latest shop and
+            <span> Special Offers.</span>
+        </p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your Email address" />
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
 
-            <p><strong>Hours:</strong> 10:00 - 18:00, Mon -Sat</p>
-            <div class="follow">
-                <h4>Follow us</h4>
-                <div class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
+<footer class="section-p1">
+    <div class="col">
+        <img src="Assests/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p>
+            <strong>Addres:</strong> 562 Wellington Road, Street 32, San Francisco
+        </p>
+
+        <p><strong>Addres:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+
+        <p><strong>Hours:</strong> 10:00 - 18:00, Mon -Sat</p>
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
             </div>
         </div>
+    </div>
 
-        <div class="col">
-            <h4>About</h4>
-            <a href="#">About us</a>
-            <a href="#">Delivery Information</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart </a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+    </div>
+
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="Assests/pay/app.jpg" alt="" />
+
+            <img src="Assests/pay/play.jpg" alt="" />
         </div>
+        <p>Secured Payment Geteways</p>
+        <img src="Assests/pay/pay.png" alt="" />
+    </div>
 
-        <div class="col">
-            <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart </a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
-        </div>
+    <div class="copyright">
+        <p>2023 copyrights Reserved</p>
+    </div>
+</footer>
 
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Paly</p>
-            <div class="row">
-                <img src="Assests/pay/app.jpg" alt="" />
+<script>
+    const bar = document.getElementById('bar');
+    const close = document.getElementById('close');
+    const nav = document.getElementById('navbar');
 
-                <img src="Assests/pay/play.jpg" alt="" />
-            </div>
-            <p>Secured Payment Geteways</p>
-            <img src="Assests/pay/pay.png" alt="" />
-        </div>
+    if (bar) {
+        bar.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+    }
 
-        <div class="copyright">
-            <p>2023 copyrights Reserved</p>
-        </div>
-    </footer>
+    if (close) {
+        close.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    }
+</script>
 </body>
 </html>

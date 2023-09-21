@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ecommere App</title>
     <link rel="icon" href="Assests/icon1.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -15,22 +15,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
     <script>
-            // const bar = document.getElementById('bar'); // Changed getElementsById to getElementById
-            // const close = document.getElementById('close'); // Changed getElementsById to getElementById
-            // const nav = document.getElementById('navbar'); // Changed getElementsById to getElementById
-
-            // if (bar) {
-            //     bar.addEventListener('click', () => {
-            //         nav.classList.add('active');
-            //     });
-            // }
-
-            // if (close) {
-            //     close.addEventListener('click', () => { // Changed bar.addEventListener to close.addEventListener
-            //         nav.classList.remove('active');
-            //     });
-            // }
-
     async function fetchAndRenderProducts() {
         try {
             const response = await fetch('https://fakestoreapi.com/products?limit=20');
@@ -146,6 +130,7 @@
     <section class="header">
         <a href="#"><img src="Assests/logo.png" alt=""></a>
         <ul id="navbar">
+            <i id="close" class="fa-solid fa-times"></i>
             <li><a href="index.php">Home</a></li>
             <li><a href="Shop.php">Shop</a></li>
             <li><a href="About.php">About</a></li >
@@ -165,7 +150,7 @@
             ?></li>
         </ul>
         <div id="mobile">
-        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+        <a href="AddtoCart.php"><i class="fas fa-shopping-bag"></i></a>
         <i id="bar" class="fa-solid fa-bars"></i>
       </div>
     </section>
@@ -447,6 +432,24 @@
             <p>2023 copyrights Reserved</p>
         </div>
     </footer>
+    <script>
+         const bar = document.getElementById('bar'); // Changed getElementsById to getElementById
+            const close = document.getElementById('close'); // Changed getElementsById to getElementById
+            const nav = document.getElementById('navbar'); // Changed getElementsById to getElementById
+
+            if (bar) {
+                bar.addEventListener('click', () => {
+                    nav.classList.add('active');
+                });
+               
+            }
+
+            if (close) {
+                close.addEventListener('click', () => { // Changed bar.addEventListener to close.addEventListener
+                    nav.classList.remove('active');
+                });
+            }
+    </script>
 </body>
 
 </html>
